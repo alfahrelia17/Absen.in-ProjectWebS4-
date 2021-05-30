@@ -6,13 +6,14 @@
     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
         <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg px-4 py-4">
         @if(session()->has('message'))
-            <div class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded my-3">
+            <div class="bg-green-300 border-t-4 border-green-600 rounded-b">
                  <div>
                      <h1 class="text-black font-bold">{{ session('message') }}</h1>
                  </div>
             </div>
             
             @endif
+
             
             <button wire:click="create()" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded my-3"> + Tambah Jabatan</button>
             
