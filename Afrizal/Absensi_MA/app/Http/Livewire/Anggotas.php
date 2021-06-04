@@ -8,7 +8,7 @@ use App\Models\Jabatan;
 
 class Anggotas extends Component
 {
-    public $anggotas, $Anggota, $Jabatan, $TTD, $Alamat, $member_id;
+    public $anggotas, $Anggota, $Jabatan, $TTD, $Alamat, $member_id, $Nama_Anggota;
     public $isModal = 0;
 
     public function render()
