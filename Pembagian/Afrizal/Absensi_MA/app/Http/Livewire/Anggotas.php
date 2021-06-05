@@ -8,13 +8,13 @@ use App\Models\Jabatan;
 
 class Anggotas extends Component
 {
-    public $anggotas, $Anggota, $Jabatan, $TTD, $Alamat, $member_id, $Nama_Anggota;
+    public $anggotas, $Anggota, $Jabatan,$Jabatans, $TTD, $Alamat, $member_id, $Nama_Anggota;
     public $isModal = 0;
 
     public function render()
     {
         $this->anggotas = Anggota::orderBy('created_at', 'DESC')->get(); 
-        $this->Jabatan = Jabatan::orderBy('Jabatan','ASC')->get();
+        $this->Jabatans = Jabatan::orderBy('Jabatan','ASC')->get();
         return view('livewire.anggotas'); 
     }
     public function create()
@@ -48,15 +48,20 @@ class Anggotas extends Component
     {
         
         $this->validate([
-            'Nama_Anggota' => 'required|string',
-            'Jabatan' => 'required|string',
+            'Nama_Anggota' => 'required',
             'TTD' => 'required|string',
             'Alamat' => 'required|string',
             
         ]);
 
         if($this->member_id==null){
-            Anggota::insert(array('Nama_Anggota'=>$this->Nama_Anggota,'Jabatan'=>$this->Jabatan,'TTD'=>$this->TTD,'Alamat'=>$this->Alamat));
+            //Anggota::insert(array('Nama_Anggota'=>$this->Nama_Anggota,'Jabatan'=>$this->Jabatan,'TTD'=>$this->TTD,'Alamat'=>$this->Alamat));
+            Anggota::create([
+                'Nama_Anggota' => $this->Nama_Anggota,
+                'Jabatan' => $this->Jabatan,
+                'TTD' => $this->TTD,
+                'Alamat' => $this->Alamat,
+            ]);
         }else{
             Anggota::where('id',$this->member_id)->update(array('Nama_Anggota'=>$this->Nama_Anggota,'Jabatan'=>$this->Jabatan,'TTD'=>$this->TTD,'Alamat'=>$this->Alamat));
         }
