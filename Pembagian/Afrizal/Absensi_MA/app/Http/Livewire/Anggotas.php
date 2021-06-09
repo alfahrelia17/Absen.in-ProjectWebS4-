@@ -8,7 +8,7 @@ use App\Models\Jabatan;
 
 class Anggotas extends Component
 {
-    public $anggotas, $Anggota, $Jabatan,$Jabatans, $TTD, $Alamat, $member_id, $Nama_Anggota;
+    public $anggotas, $Anggota, $Jabatan, $Jabatans, $TTD, $Alamat, $member_id, $Nama_Anggota;
     public $isModal = 0;
 
     public function render()
@@ -49,7 +49,6 @@ class Anggotas extends Component
         
         $this->validate([
             'Nama_Anggota' => 'required',
-            'Jabatan' => 'required|string',
             'TTD' => 'required|string',
             'Alamat' => 'required|string',
             
